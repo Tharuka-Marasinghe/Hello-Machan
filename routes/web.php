@@ -23,7 +23,7 @@ Route::get('/contact-us', function () {
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
-})->name('dashboard');
+})->middleware('auth')->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -47,9 +47,9 @@ Route::controller(SliderController::class)->group(function () {
 
 Route::controller(MenuController::class)->group(function () {
     Route::get('/MenuIndex', 'index')->name('menu.index');
-    Route::post('/saveMenu', 'storeMenu')->name('menu.store');
+    Route::post('/saveMenu', 'store')->name('menu.store');
     Route::post('/updateMenu', 'updateMenu')->name('menu.update');
-    Route::get('/deleteMenu/{id}', 'deleteMenu')->name('menu.delete');
+    Route::get('/deleteMenu/{id}', 'destroy')->name('menu.delete');
 });
 
 // Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {

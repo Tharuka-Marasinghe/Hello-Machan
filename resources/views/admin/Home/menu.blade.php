@@ -106,12 +106,12 @@
                         <td>{{ $menu->price }}</td>
                         <td><img width="100" src="{{asset('storage/'.$menu->image) }}" alt=""></td>
                         <td>{{ $menu->is_available }}</td>
-                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sliderModal{{ $menu->id }}">Edit</button>
-                            <a href="/deleteSlider/{{ $menu->id }}" class="btn btn-danger">Delete</a>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#menuModal{{ $menu->id }}">Edit</button>
+                            <a href="/deleteMenu/{{ $menu->id }}" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
 
-                    <div class="modal fade" id="sliderModal{{ $menu->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="menuModal{{ $menu->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -157,7 +157,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Add Menu</button>
+                                        <button type="submit" class="btn btn-primary">Update Menu</button>
                                     </div>
                                 </form>
                             </div>

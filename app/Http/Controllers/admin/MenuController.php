@@ -16,7 +16,7 @@ class MenuController extends Controller
 
     public function create()
     {
-        return view('admin.menus.create');
+        return view('admin.Home.menu');
     }
 
     public function store(Request $request)
@@ -34,22 +34,22 @@ class MenuController extends Controller
 
         Menu::create($validated);
 
-        return redirect()->route('admin.Home.menu')->with('success', 'Menu item added successfully.');
+        return redirect()->route('menu.index')->with('success', 'Menu item added successfully.');
     }
 
     public function edit(Menu $menu)
     {
-        return view('admin.menus.edit', compact('menu'));
+        return view('admin.Home.menu', compact('menu'));
     }
 
-    public function update(Request $request, Menu $menu)
+    public function updateMenu(Request $request, Menu $menu)
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric',
             'image' => 'nullable|image',
-            'is_available' => 'boolean',
+            'is_available' => 'string',
         ]);
 
         if ($request->hasFile('image')) {
@@ -58,12 +58,17 @@ class MenuController extends Controller
 
         $menu->update($validated);
 
-        return redirect()->route('admin.Home.menu')->with('success', 'Menu item updated successfully.');
+        return redirect()->route('menu.update')->with('success', 'Menu item updated successfully.');
     }
 
     public function destroy(Menu $menu)
     {
-        $menu->delete();
-        return redirect()->route('admin.Home.menu')->with('success', 'Menu item deleted.');
+
+        // $slider = Slider::find($id);
+        // $slider->delete();
+        // return redirect()->back()->with('success', 'Slider Deleted Successfully');
+        $menuItem = Menu::find($menu->id);
+        $menuItem->delete();
+        return redirect()->route('menu.index')->with('success', 'Menu item deleted.');
     }
 }
