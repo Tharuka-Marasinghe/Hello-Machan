@@ -4,6 +4,18 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\admin\TestimonialController;
+use App\Models\Menu;
+use App\Models\Testimonial;
+
+
+
+Route::get('/', function () {
+
+    $items = Menu::all();
+    $testimonials = Testimonial::all();
+    return view('frontend.home', compact('items', 'testimonials'));
+});
 
 Route::get('/', function () {
     return view('frontend.home');
@@ -14,12 +26,19 @@ Route::get('/about-us', function () {
 })->name('about');
 
 Route::get('/menu', function () {
-    return view('frontend.menu');
+    $items = Menu::all();
+
+
+    return view('frontend.menu', compact('items'));
 })->name('menu');
 
 Route::get('/contact-us', function () {
     return view('frontend.contact');
 })->name('contact');
+
+Route::get('/cart', function () {
+    return view('frontend.cart');
+})->name('cart');
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
@@ -55,6 +74,13 @@ Route::controller(MenuController::class)->group(function () {
 // Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
 //     Route::resource('menus', MenuController::class);
 // });
+
+Route::controller(TestimonialController::class)->group(function () {
+    Route::get('/TestimonialIndex', 'index')->name('Testimonial.index');
+    Route::post('/saveTestimonial', 'storeTestimonial')->name('Testimonial.store');
+    Route::post('/updateTestimonial', 'updateTestimonial')->name('Testimonial.update');
+    Route::get('/deleteTestimonial/{id}', 'deleteTestimonial')->name('Testimonial.delete');
+});
 
 
 require __DIR__ . '/auth.php';

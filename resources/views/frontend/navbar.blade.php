@@ -20,8 +20,11 @@
                 <a href="{{ route('about') }}" class="nav-item nav-link">About</a>
                 <a href="{{ route('menu') }}" class="nav-item nav-link">Menu</a>
                 <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
+
             </div>
-            <a href="#booking" class="px-4 py-2 btn btn-primary">Book A Table</a>
+            <a href="{{ route('login') }}" class="px-4 py-2 btn btn-primary">Login/Register</a>
+            <a href="{{ route('cart') }}" class="ms-3 btn btn-primary">
+                <i class="fa fa-shopping-cart me-2"></i>Cart></a>
         </div>
     </nav>
 </div>

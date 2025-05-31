@@ -2,7 +2,7 @@
 
        @section('content')
        <!-- Hero Start -->
-       <div class="mb-5  container-fluid bg-dark hero-header">
+       <div class="mb-5 container-fluid bg-dark hero-header">
            <div class="container py-5 my-5">
                <div class="row align-items-center g-5">
                    <div class="text-center col-lg-6 text-lg-start">
@@ -849,86 +849,6 @@
        <!-- Team End -->
 
        <!-- Testimonial Start -->
-       <div class="py-5 container-xxl wow fadeInUp" data-wow-delay="0.1s">
-           <div class="container">
-               <div class="text-center">
-                   <h5
-                       class="text-center section-title ff-secondary text-primary fw-normal">
-                       Testimonial
-                   </h5>
-                   <h1 class="mb-5">Our Clients Say!!!</h1>
-               </div>
-               <div class="owl-carousel testimonial-carousel">
-                   <div class="p-4 bg-transparent border rounded testimonial-item">
-                       <i class="mb-3 fa fa-quote-left fa-2x text-primary"></i>
-                       <p>
-                           Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor
-                           stet amet eirmod eos labore diam
-                       </p>
-                       <div class="d-flex align-items-center">
-                           <img
-                               class="flex-shrink-0 img-fluid rounded-circle"
-                               src="{{ asset('assets/img/testimonial-1.jpg') }}"
-                               style="width: 50px; height: 50px" />
-                           <div class="ps-3">
-                               <h5 class="mb-1">Client Name</h5>
-                               <small>Profession</small>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="p-4 bg-transparent border rounded testimonial-item">
-                       <i class="mb-3 fa fa-quote-left fa-2x text-primary"></i>
-                       <p>
-                           Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor
-                           stet amet eirmod eos labore diam
-                       </p>
-                       <div class="d-flex align-items-center">
-                           <img
-                               class="flex-shrink-0 img-fluid rounded-circle"
-                               src="{{ asset('assets/img/testimonial-2.jpg')}}"
-                               style="width: 50px; height: 50px" />
-                           <div class="ps-3">
-                               <h5 class="mb-1">Client Name</h5>
-                               <small>Profession</small>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="p-4 bg-transparent border rounded testimonial-item">
-                       <i class="mb-3 fa fa-quote-left fa-2x text-primary"></i>
-                       <p>
-                           Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor
-                           stet amet eirmod eos labore diam
-                       </p>
-                       <div class="d-flex align-items-center">
-                           <img
-                               class="flex-shrink-0 img-fluid rounded-circle"
-                               src="{{ asset('assets/img/testimonial-3.jpg') }}"
-                               style="width: 50px; height: 50px" />
-                           <div class="ps-3">
-                               <h5 class="mb-1">Client Name</h5>
-                               <small>Profession</small>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="p-4 bg-transparent border rounded testimonial-item">
-                       <i class="mb-3 fa fa-quote-left fa-2x text-primary"></i>
-                       <p>
-                           Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor
-                           stet amet eirmod eos labore diam
-                       </p>
-                       <div class="d-flex align-items-center">
-                           <img
-                               class="flex-shrink-0 img-fluid rounded-circle"
-                               src="{{ asset('assets/img/testimonial-4.jpg') }}"
-                               style="width: 50px; height: 50px" />
-                           <div class="ps-3">
-                               <h5 class="mb-1">Client Name</h5>
-                               <small>Profession</small>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
+       @include('frontend.testimonial')
        <!-- Testimonial End -->
        @endsection

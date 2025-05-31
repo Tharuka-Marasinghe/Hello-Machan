@@ -19,6 +19,7 @@ class MenuController extends Controller
         return view('admin.Home.menu');
     }
 
+
     public function store(Request $request)
     {
         $validated = $request->validate([
