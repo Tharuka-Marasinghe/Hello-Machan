@@ -67,13 +67,19 @@
                                         <span class="text-primary">{{ $item->price }}</span>
                                     </h5>
                                     <small class="fst-italic">{{ $item->description }}</small>
+                                    <div class="pt-2 d-flex">
+                                        <a
+                                            class="btn btn-sm btn-primary flex-fill me-2"
+                                            href="{{ route('addToCart', $item->id) }}">
+                                            <i class="fa fa-shopping-cart me-2"></i>
+                                            Add To Cart
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         @endforeach
-
                     </div>
-
                 </div>
             </div>
         </div>

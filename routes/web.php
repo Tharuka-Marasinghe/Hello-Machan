@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\admin\SettingsController;
 use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\BookingController;
-
+use App\Http\Controllers\CartController;
 use App\Models\Menu;
 use App\Models\Testimonial;
 
@@ -103,6 +103,9 @@ Route::controller(BookingController::class)->group(function () {
     Route::post('/bookings', 'store')->name('bookings.store');
     Route::post('/booking', 'accept')->name('bookings.accept');
     Route::post('/booking/reject', 'reject')->name('bookings.reject');
+});
+Route::controller(CartController::class)->group(function () {
+    Route::get('/addToCart', 'store')->name('addToCart');
 });
 
 require __DIR__ . '/auth.php';
