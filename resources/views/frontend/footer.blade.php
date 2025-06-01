@@ -1,11 +1,11 @@
 <div
-    class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
+    class="pt-5 mt-5 container-fluid bg-dark text-light footer wow fadeIn"
     data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <h4
-                    class="section-title ff-secondary text-start text-primary fw-normal mb-4">
+                    class="mb-4 section-title ff-secondary text-start text-primary fw-normal">
                     Company
                 </h4>
                 <a class="btn btn-link" href="{{ route('about') }}">About Us</a>
@@ -16,7 +16,7 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4
-                    class="section-title ff-secondary text-start text-primary fw-normal mb-4">
+                    class="mb-4 section-title ff-secondary text-start text-primary fw-normal">
                     Contact
                 </h4>
                 <p class="mb-2">
@@ -29,7 +29,7 @@
                 <p class="mb-2">
                     <i class="fa fa-envelope me-3"></i>info@example.com
                 </p>
-                <div class="d-flex pt-2">
+                <div class="pt-2 d-flex">
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
@@ -38,7 +38,7 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4
-                    class="section-title ff-secondary text-start text-primary fw-normal mb-4">
+                    class="mb-4 section-title ff-secondary text-start text-primary fw-normal">
                     Opening
                 </h4>
                 <h5 class="text-light fw-normal">Monday - Saturday</h5>
@@ -48,18 +48,18 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4
-                    class="section-title ff-secondary text-start text-primary fw-normal mb-4">
+                    class="mb-4 section-title ff-secondary text-start text-primary fw-normal">
                     Newsletter
                 </h4>
                 <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                <div class="position-relative mx-auto" style="max-width: 400px">
+                <div class="mx-auto position-relative" style="max-width: 400px">
                     <input
-                        class="form-control border-primary w-100 py-3 ps-4 pe-5"
+                        class="py-3 form-control border-primary w-100 ps-4 pe-5"
                         type="text"
                         placeholder="Your email" />
                     <button
                         type="button"
-                        class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">
+                        class="top-0 py-2 mt-2 btn btn-primary position-absolute end-0 me-2">
                         SignUp
                     </button>
                 </div>
@@ -69,7 +69,7 @@
     <div class="container">
         <div class="copyright">
             <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                <div class="mb-3 text-center col-md-6 text-md-start mb-md-0">
                     &copy; <a class="border-bottom" href="#">Hello Machan</a>, All
                     Right Reserved.
 
@@ -82,7 +82,7 @@
                         href="https://themewagon.com"
                         target="_blank">ThemeWagon</a>
                 </div>
-                <div class="col-md-6 text-center text-md-end">
+                <div class="text-center col-md-6 text-md-end">
                     <div class="footer-menu">
                         <a href="{{ route('home') }}">Home</a>
                         <a href="">Cookies</a>

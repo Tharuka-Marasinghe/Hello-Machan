@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
-            $table->decimal('price', 8, 2);
-            $table->string('image')->nullable(); // Path to image
-            $table->enum('category', ['Rice', 'Kottu', 'Biriyani', 'Soup']);
-            $table->enum('size', ['Small', 'Large']);
+            $table->string('email');
+            $table->dateTime('datetime');
+            $table->integer('people');
+            $table->text('message')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('bookings');
     }
 };

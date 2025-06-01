@@ -64,10 +64,27 @@
                             <input type="file" class="form-control" id="image" name="image">
                         </div>
 
-                        <!-- Is Available -->
+                        <!-- Category -->
                         <div class="mb-3">
-                            <label for="isAvailable" class="form-label">Is Available</label>
-                            <input type="text" class="form-control" id="isAvailable" name="is_available" placeholder="Is Available">
+                            <label for="category" class="form-label">Category</label>
+                            <select name="category" id="category" class="form-select">
+                                <option value="" disabled selected>Select Category</option>
+                                <option value="Rice">Rice</option>
+                                <option value="Kottu">Kottu</option>
+                                <option value="Biriyani">Biriyani</option>
+                                <option value="Soup">Soup</option>
+                            </select>
+                        </div>
+
+                        <!-- Size -->
+                        <div class="mb-3">
+                            <label for="size" class="form-label">Size</label>
+                            <select name="size" id="size" class="form-select">
+                                <option value="" disabled selected>Select Size</option>
+                                <option value="Small">Small</option>
+
+                                <option value="Large">Large</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -93,7 +110,8 @@
                         <th>description</th>
                         <th>price</th>
                         <th>image</th>
-                        <th>is_available</th>
+                        <th>category</th>
+                        <th>size</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -105,7 +123,8 @@
                         <td>{{ $menu->description }}</td>
                         <td>{{ $menu->price }}</td>
                         <td><img width="100" src="{{asset('storage/'.$menu->image) }}" alt=""></td>
-                        <td>{{ $menu->is_available }}</td>
+                        <td>{{ $menu->category }}</td>
+                        <td>{{ $menu->size }}</td>
                         <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#menuModal{{ $menu->id }}">Edit</button>
                             <a href="/deleteMenu/{{ $menu->id }}" class="btn btn-danger">Delete</a>
                         </td>
@@ -120,7 +139,7 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form method="POST" action="/updateMenu" enctype="multipart/form-data">
+                                <form method="POST" action="{{ route('menu.update') }}" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="menu_id" value="{{ $menu->id }}">
                                     <div class="modal-body">
@@ -149,11 +168,29 @@
                                             <input type="file" class="form-control" id="image" name="image">
                                         </div>
 
-                                        <!-- Is Available -->
+                                        <!-- Category -->
                                         <div class="mb-3">
-                                            <label for="isAvailable" class="form-label">Is Available</label>
-                                            <input type="text" class="form-control" id="isAvailable" name="is_available" placeholder="Is Available">
+                                            <label for="category" class="form-label">Category</label>
+                                            <select name="category" id="category" class="form-select">
+                                                <option value="" disabled selected>Select Category</option>
+                                                <option value="Rice">Rice</option>
+                                                <option value="Kottu">Kottu</option>
+                                                <option value="Biriyani">Biriyani</option>
+                                                <option value="Soup">Soup</option>
+                                            </select>
                                         </div>
+
+                                        <!-- Size -->
+                                        <div class="mb-3">
+                                            <label for="size" class="form-label">Size</label>
+                                            <select name="size" id="size" class="form-select">
+                                                <option value="" disabled selected>Select Size</option>
+                                                <option value="Small">Small</option>
+
+                                                <option value="Large">Large</option>
+                                            </select>
+                                        </div>
+
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -27,6 +27,8 @@ class MenuController extends Controller
             'description' => 'nullable|string',
             'price' => 'required|numeric',
             'image' => 'nullable|image',
+            'category' => 'required|in:Rice,Kottu,Biriyani,Soup',
+            'size' => 'required|in:Small,Large',
         ]);
 
         if ($request->hasFile('image')) {
@@ -50,7 +52,8 @@ class MenuController extends Controller
             'description' => 'nullable|string',
             'price' => 'required|numeric',
             'image' => 'nullable|image',
-            'is_available' => 'string',
+            'category' => 'required|in:Rice,Kottu,Biriyani,Soup',
+            'size' => 'required|in:Small,Large',
         ]);
 
         if ($request->hasFile('image')) {
@@ -62,13 +65,11 @@ class MenuController extends Controller
         return redirect()->route('menu.update')->with('success', 'Menu item updated successfully.');
     }
 
-    public function destroy(Menu $menu)
+    public function deleteMenu($id)
     {
 
-        // $slider = Slider::find($id);
-        // $slider->delete();
-        // return redirect()->back()->with('success', 'Slider Deleted Successfully');
-        $menuItem = Menu::find($menu->id);
+
+        $menuItem = Menu::find($id);
         $menuItem->delete();
         return redirect()->route('menu.index')->with('success', 'Menu item deleted.');
     }

@@ -1,6 +1,11 @@
        @extends('frontend.master')
 
        @section('content')
+       @if(session('success'))
+       <div class="alert alert-success">
+           {{ session('success') }}
+       </div>
+       @endif
        <!-- Hero Start -->
        <div class="mb-5 container-fluid bg-dark hero-header">
            <div class="container py-5 my-5">
@@ -172,6 +177,7 @@
        </div>
        <!-- About End -->
 
+
        <!-- Menu Start -->
        <div class="py-5 container-xxl">
            <div class="container">
@@ -197,658 +203,246 @@
                                </div>
                            </a>
                        </li>
-                       <li class="nav-item">
-                           <a
-                               class="pb-3 mx-3 d-flex align-items-center text-start"
-                               data-bs-toggle="pill"
-                               href="#tab-2">
-                               <i class="fa fa-hamburger fa-2x text-primary"></i>
-                               <div class="ps-3">
-                                   <small class="text-body">Special</small>
-                                   <h6 class="mb-0 mt-n1">Launch</h6>
-                               </div>
-                           </a>
-                       </li>
-                       <li class="nav-item">
-                           <a
-                               class="pb-3 mx-3 d-flex align-items-center text-start me-0"
-                               data-bs-toggle="pill"
-                               href="#tab-3">
-                               <i class="fa fa-utensils fa-2x text-primary"></i>
-                               <div class="ps-3">
-                                   <small class="text-body">Lovely</small>
-                                   <h6 class="mb-0 mt-n1">Dinner</h6>
-                               </div>
-                           </a>
-                       </li>
+
+
                    </ul>
                    <div class="tab-content">
                        <div id="tab-1" class="p-0 tab-pane fade show active">
                            <div class="row g-4">
+                               @foreach ($items as $item )
                                <div class="col-lg-6">
                                    <div class="d-flex align-items-center">
                                        <img
                                            class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-1.jpg"
+                                           src="{{ asset('storage/'.$item->image.'') }}"
                                            alt=""
                                            style="width: 80px" />
                                        <div class="w-100 d-flex flex-column text-start ps-4">
                                            <h5
                                                class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
+                                               <span>{{ $item->name }}</span>
+                                               <span class="text-primary">{{ $item->price }}</span>
                                            </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
+                                           <small class="fst-italic">{{ $item->description }}</small>
                                        </div>
                                    </div>
                                </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-2.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-3.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-4.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-5.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-6.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-7.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-8.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
+                               @endforeach
+
                            </div>
+
                        </div>
-                       <div id="tab-2" class="p-0 tab-pane fade show">
-                           <div class="row g-4">
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-1.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-2.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-3.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-4.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-5.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-6.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-7.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-8.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
+                   </div>
+               </div>
+           </div>
+           <!-- Menu End -->
+
+
+           <!-- Reservation Start -->
+           <div class="px-0 py-5 container-xxl wow fadeInUp" data-wow-delay="0.1s">
+               <div class="row g-0">
+                   <div class="col-md-6">
+                       <div class="video">
+                           <button
+                               type="button"
+                               class="btn-play"
+                               data-bs-toggle="modal"
+                               data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
+                               data-bs-target="#videoModal">
+                               <span></span>
+                           </button>
                        </div>
-                       <div id="tab-3" class="p-0 tab-pane fade show">
-                           <div class="row g-4">
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-1.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
+                   </div>
+                   <div class="col-md-6 bg-dark d-flex align-items-center">
+                       <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                           <h5
+                               class="section-title ff-secondary text-start text-primary fw-normal">
+                               Reservation
+                           </h5>
+                           <h1 class="mb-4 text-white">Book A Table Online</h1>
+                           <form id="booking" action="{{ route('bookings.store') }}" method="POST">
+                               @csrf
+                               <div class="row g-3">
+                                   <div class="col-md-6">
+                                       <div class="form-floating">
+                                           <input
+                                               type="text"
+                                               class="form-control"
+                                               id="name"
+                                               name="name"
+                                               placeholder="Your Name" />
+                                           <label for="name">Your Name</label>
                                        </div>
                                    </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-2.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
+                                   <div class="col-md-6">
+                                       <div class="form-floating">
+                                           <input
+                                               type="email"
+                                               class="form-control"
+                                               id="email"
+                                               name="email"
+                                               placeholder="Your Email" />
+                                           <label for="email">Your Email</label>
                                        </div>
                                    </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-3.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
+                                   <div class="col-md-6">
+                                       <div
+                                           class="form-floating date"
+                                           id="date3"
+                                           data-target-input="nearest">
+                                           <input
+                                               type="text"
+                                               class="form-control datetimepicker-input"
+                                               id="datetime"
+                                               name="datetime"
+                                               placeholder="Date & Time"
+                                               data-target="#date3"
+                                               data-toggle="datetimepicker" />
+                                           <label for="datetime">Date & Time</label>
                                        </div>
                                    </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-4.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
+                                   <div class="col-md-6">
+                                       <div class="form-floating">
+                                           <select class="form-select" id="select1" name="people"> >
+                                               <option value="1">People 1</option>
+                                               <option value="2">People 2</option>
+                                               <option value="3">People 3</option>
+                                               <option value="3">People 4</option>
+                                               <option value="3">People 5</option>
+                                               <option value="3">People 6</option>
+                                           </select>
+                                           <label for="select1">No Of People</label>
                                        </div>
                                    </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-5.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
+                                   <div class="col-12">
+                                       <div class="form-floating">
+                                           <textarea
+                                               class="form-control"
+                                               placeholder="Special Request"
+                                               id="message"
+                                               name="message"
+                                               style="height: 100px"></textarea>
+                                           <label for="message">Special Request</label>
                                        </div>
                                    </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-6.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
+                                   <div class="col-12">
+                                       <button class="py-3 btn btn-primary w-100" type="submit">
+                                           Book Now
+                                       </button>
                                    </div>
                                </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-7.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-lg-6">
-                                   <div class="d-flex align-items-center">
-                                       <img
-                                           class="flex-shrink-0 rounded img-fluid"
-                                           src="img/menu-8.jpg"
-                                           alt=""
-                                           style="width: 80px" />
-                                       <div class="w-100 d-flex flex-column text-start ps-4">
-                                           <h5
-                                               class="pb-2 d-flex justify-content-between border-bottom">
-                                               <span>Chicken Burger</span>
-                                               <span class="text-primary">$115</span>
-                                           </h5>
-                                           <small class="fst-italic">Ipsum ipsum clita erat amet dolor justo diam</small>
-                                       </div>
-                                   </div>
-                               </div>
+                           </form>
+                       </div>
+                   </div>
+               </div>
+           </div>
+
+           <div
+               class="modal fade"
+               id="videoModal"
+               tabindex="-1"
+               aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+               <div class="modal-dialog">
+                   <div class="modal-content rounded-0">
+                       <div class="modal-header">
+                           <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
+                           <button
+                               type="button"
+                               class="btn-close"
+                               data-bs-dismiss="modal"
+                               aria-label="Close"></button>
+                       </div>
+                       <div class="modal-body">
+                           <!-- 16:9 aspect ratio -->
+                           <div class="ratio ratio-16x9">
+                               <iframe
+                                   class="embed-responsive-item"
+                                   src=""
+                                   id="video"
+                                   allowfullscreen
+                                   allowscriptaccess="always"
+                                   allow="autoplay"></iframe>
                            </div>
                        </div>
                    </div>
                </div>
            </div>
-       </div>
-       <!-- Menu End -->
+           <!-- Reservation Start -->
 
-       <!-- Reservation Start -->
-       <div class="px-0 py-5 container-xxl wow fadeInUp" data-wow-delay="0.1s">
-           <div class="row g-0">
-               <div class="col-md-6">
-                   <div class="video">
-                       <button
-                           type="button"
-                           class="btn-play"
-                           data-bs-toggle="modal"
-                           data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
-                           data-bs-target="#videoModal">
-                           <span></span>
-                       </button>
-                   </div>
-               </div>
-               <div class="col-md-6 bg-dark d-flex align-items-center">
-                   <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+           <!-- Team Start -->
+           <div class="pt-5 pb-3 container-xxl">
+               <div class="container">
+                   <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                        <h5
-                           class="section-title ff-secondary text-start text-primary fw-normal">
-                           Reservation
+                           class="text-center section-title ff-secondary text-primary fw-normal">
+                           Team Members
                        </h5>
-                       <h1 class="mb-4 text-white">Book A Table Online</h1>
-                       <form id="booking">
-                           <div class="row g-3">
-                               <div class="col-md-6">
-                                   <div class="form-floating">
-                                       <input
-                                           type="text"
-                                           class="form-control"
-                                           id="name"
-                                           placeholder="Your Name" />
-                                       <label for="name">Your Name</label>
-                                   </div>
-                               </div>
-                               <div class="col-md-6">
-                                   <div class="form-floating">
-                                       <input
-                                           type="email"
-                                           class="form-control"
-                                           id="email"
-                                           placeholder="Your Email" />
-                                       <label for="email">Your Email</label>
-                                   </div>
-                               </div>
-                               <div class="col-md-6">
-                                   <div
-                                       class="form-floating date"
-                                       id="date3"
-                                       data-target-input="nearest">
-                                       <input
-                                           type="text"
-                                           class="form-control datetimepicker-input"
-                                           id="datetime"
-                                           placeholder="Date & Time"
-                                           data-target="#date3"
-                                           data-toggle="datetimepicker" />
-                                       <label for="datetime">Date & Time</label>
-                                   </div>
-                               </div>
-                               <div class="col-md-6">
-                                   <div class="form-floating">
-                                       <select class="form-select" id="select1">
-                                           <option value="1">People 1</option>
-                                           <option value="2">People 2</option>
-                                           <option value="3">People 3</option>
-                                           <option value="3">People 4</option>
-                                           <option value="3">People 5</option>
-                                           <option value="3">People 6</option>
-                                       </select>
-                                       <label for="select1">No Of People</label>
-                                   </div>
-                               </div>
-                               <div class="col-12">
-                                   <div class="form-floating">
-                                       <textarea
-                                           class="form-control"
-                                           placeholder="Special Request"
-                                           id="message"
-                                           style="height: 100px"></textarea>
-                                       <label for="message">Special Request</label>
-                                   </div>
-                               </div>
-                               <div class="col-12">
-                                   <button class="py-3 btn btn-primary w-100" type="submit">
-                                       Book Now
-                                   </button>
-                               </div>
-                           </div>
-                       </form>
+                       <h1 class="mb-5">Our Master Chefs</h1>
                    </div>
-               </div>
-           </div>
-       </div>
-
-       <div
-           class="modal fade"
-           id="videoModal"
-           tabindex="-1"
-           aria-labelledby="exampleModalLabel"
-           aria-hidden="true">
-           <div class="modal-dialog">
-               <div class="modal-content rounded-0">
-                   <div class="modal-header">
-                       <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
-                       <button
-                           type="button"
-                           class="btn-close"
-                           data-bs-dismiss="modal"
-                           aria-label="Close"></button>
-                   </div>
-                   <div class="modal-body">
-                       <!-- 16:9 aspect ratio -->
-                       <div class="ratio ratio-16x9">
-                           <iframe
-                               class="embed-responsive-item"
-                               src=""
-                               id="video"
-                               allowfullscreen
-                               allowscriptaccess="always"
-                               allow="autoplay"></iframe>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-       <!-- Reservation Start -->
-
-       <!-- Team Start -->
-       <div class="pt-5 pb-3 container-xxl">
-           <div class="container">
-               <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                   <h5
-                       class="text-center section-title ff-secondary text-primary fw-normal">
-                       Team Members
-                   </h5>
-                   <h1 class="mb-5">Our Master Chefs</h1>
-               </div>
-               <div class="row g-4">
-                   <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                       <div class="overflow-hidden text-center rounded team-item">
-                           <div class="m-4 overflow-hidden rounded-circle">
-                               <img class="img-fluid" src="{{ asset('assets/img/team-1.jpg') }}" alt="" />
-                           </div>
-                           <h5 class="mb-0">Full Name</h5>
-                           <small>Designation</small>
-                           <div class="mt-3 d-flex justify-content-center">
-                               <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-facebook-f"></i></a>
-                               <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-twitter"></i></a>
-                               <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-instagram"></i></a>
+                   <div class="row g-4">
+                       <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                           <div class="overflow-hidden text-center rounded team-item">
+                               <div class="m-4 overflow-hidden rounded-circle">
+                                   <img class="img-fluid" src="{{ asset('assets/img/team-1.jpg') }}" alt="" />
+                               </div>
+                               <h5 class="mb-0">Full Name</h5>
+                               <small>Designation</small>
+                               <div class="mt-3 d-flex justify-content-center">
+                                   <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-facebook-f"></i></a>
+                                   <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-twitter"></i></a>
+                                   <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-instagram"></i></a>
+                               </div>
                            </div>
                        </div>
-                   </div>
-                   <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                       <div class="overflow-hidden text-center rounded team-item">
-                           <div class="m-4 overflow-hidden rounded-circle">
-                               <img class="img-fluid" src="{{ asset('assets/img/team-2.jpg') }}" alt="" />
-                           </div>
-                           <h5 class="mb-0">Full Name</h5>
-                           <small>Designation</small>
-                           <div class="mt-3 d-flex justify-content-center">
-                               <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-facebook-f"></i></a>
-                               <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-twitter"></i></a>
-                               <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-instagram"></i></a>
-                           </div>
-                       </div>
-                   </div>
-                   <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                       <div class="overflow-hidden text-center rounded team-item">
-                           <div class="m-4 overflow-hidden rounded-circle">
-                               <img class="img-fluid" src="{{ asset('assets/img/team-3.jpg') }}" alt="" />
-                           </div>
-                           <h5 class="mb-0">Full Name</h5>
-                           <small>Designation</small>
-                           <div class="mt-3 d-flex justify-content-center">
-                               <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-facebook-f"></i></a>
-                               <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-twitter"></i></a>
-                               <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-instagram"></i></a>
+                       <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                           <div class="overflow-hidden text-center rounded team-item">
+                               <div class="m-4 overflow-hidden rounded-circle">
+                                   <img class="img-fluid" src="{{ asset('assets/img/team-2.jpg') }}" alt="" />
+                               </div>
+                               <h5 class="mb-0">Full Name</h5>
+                               <small>Designation</small>
+                               <div class="mt-3 d-flex justify-content-center">
+                                   <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-facebook-f"></i></a>
+                                   <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-twitter"></i></a>
+                                   <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-instagram"></i></a>
+                               </div>
                            </div>
                        </div>
-                   </div>
-                   <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                       <div class="overflow-hidden text-center rounded team-item">
-                           <div class="m-4 overflow-hidden rounded-circle">
-                               <img class="img-fluid" src="{{ asset('assets/img/team-4.jpg') }}" alt="" />
+                       <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                           <div class="overflow-hidden text-center rounded team-item">
+                               <div class="m-4 overflow-hidden rounded-circle">
+                                   <img class="img-fluid" src="{{ asset('assets/img/team-3.jpg') }}" alt="" />
+                               </div>
+                               <h5 class="mb-0">Full Name</h5>
+                               <small>Designation</small>
+                               <div class="mt-3 d-flex justify-content-center">
+                                   <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-facebook-f"></i></a>
+                                   <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-twitter"></i></a>
+                                   <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-instagram"></i></a>
+                               </div>
                            </div>
-                           <h5 class="mb-0">Full Name</h5>
-                           <small>Designation</small>
-                           <div class="mt-3 d-flex justify-content-center">
-                               <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-facebook-f"></i></a>
-                               <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-twitter"></i></a>
-                               <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-instagram"></i></a>
+                       </div>
+                       <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                           <div class="overflow-hidden text-center rounded team-item">
+                               <div class="m-4 overflow-hidden rounded-circle">
+                                   <img class="img-fluid" src="{{ asset('assets/img/team-4.jpg') }}" alt="" />
+                               </div>
+                               <h5 class="mb-0">Full Name</h5>
+                               <small>Designation</small>
+                               <div class="mt-3 d-flex justify-content-center">
+                                   <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-facebook-f"></i></a>
+                                   <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-twitter"></i></a>
+                                   <a class="mx-1 btn btn-square btn-primary" href=""><i class="fab fa-instagram"></i></a>
+                               </div>
                            </div>
                        </div>
                    </div>
                </div>
            </div>
-       </div>
-       <!-- Team End -->
+           <!-- Team End -->
 
-       <!-- Testimonial Start -->
-       @include('frontend.testimonial')
-       <!-- Testimonial End -->
-       @endsection
+           <!-- Testimonial Start -->
+           @include('frontend.testimonial', ['testimonials' => $testimonials])
+           <!-- Testimonial End -->
+           @endsection
